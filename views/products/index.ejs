@@ -1,0 +1,37 @@
+
+    <%- include("../partials/header") %>
+    <%- include("../partials/navbar") %>
+
+
+
+    <main class="container p-5 cont" >
+
+        <%- include("../partials/flash") %>
+        
+        <section id="heading">
+            <h4 class="display-5 px-5 py-1" ><i class="fab fa-shopify" style="margin-right: 20px;"></i>Shopping-cart</h4>
+        </section>
+
+        <div class="row" >
+            <% for(let product of products){ %>
+                <div class="col-lg-3 col-md-6 col-width my-4" >
+                    <div class="card text-center">
+                        <figure>
+                            <img src="<%= product.img %>" class="card-img-top" alt="...">
+                        </figure>
+                        
+                        <div class="card-body">
+                          <h5 class="card-title"><%= product.name %></h5>
+                          <p class="card-text"><%= product.desc.substring(0,90)%>...</p>
+                          <p> Price -  &#8377; <%= product.price %></p>
+                          <a href="/products/<%= product._id %>" class="btn more-info">More Info</a>
+                        </div>
+                      </div>
+                </div>    
+            <% } %>
+        </div>
+        
+    </main>
+
+
+    <%- include("../partials/footer") %>

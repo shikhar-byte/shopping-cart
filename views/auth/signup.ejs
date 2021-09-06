@@ -1,0 +1,73 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+<div class="container cont " >
+
+    
+        
+        <form  action="/register" method="POST" class="form validate-form" novalidate>
+            
+            <%- include("../partials/flash") %>
+            
+            <div class="signup-header mb-3" >
+                <p class="text-center signup-head-para">Log in or Sign up</p>
+                <hr>
+            </div>
+
+            <div class="mb-3" >
+                <h3 class="welcome-heading" >Welcome to Shopping Cart</h3>
+            </div>
+
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Username" name="username" required >
+              <div class="valid-feedback">
+                Sounds good!
+              </div>
+              <div class="invalid-feedback">
+                Please enter a name.
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email" required >
+                <div class="valid-feedback">
+                  Sounds good!
+                </div>
+                <div class="invalid-feedback">
+                  Please enter a valid Email.
+                </div>
+              </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password" name="password" required >
+              <div class="valid-feedback">
+                Sounds good!
+              </div>
+              <div class="invalid-feedback">
+                Please enter Password.
+              </div>
+            </div>
+
+            <!-- <div class="mb-3">
+              <label for="type" class="form-label">Type of User</label>
+              <input type="text" class="form-control" id="type" placeholder="Customer / Retailer" name="type" required >
+              <div class="valid-feedback">
+                Sounds good!
+              </div>
+              <div class="invalid-feedback">
+                Please enter Password.
+              </div>
+            </div> -->
+
+            <p >Already using ? <a class="sign-in-btn" href="/login">Sign In</a></p>
+        
+            <button type="submit" class="btn form-btn">SignUp</button>
+          </form>
+    
+</div>
+  
+
+
+<%- include("../partials/footer") %>
+

@@ -1,0 +1,56 @@
+
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+<div class="container cont " >
+        
+        <form  action="/login" method="POST" class="form validate-form" novalidate>
+            
+            <%- include("../partials/flash") %>
+            
+            <div class="login-header mb-3" >
+                <p class="text-center login-head-para">Log in or Sign up</p>
+                <hr>
+            </div>
+
+            <div class="mb-4" >
+                <h3 class="welcome-heading" >Welcome to Shopping Cart</h3>
+                
+            </div>
+
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Username" name="username" required >
+              <div class="valid-feedback">
+                Sounds good!
+              </div>
+              <div class="invalid-feedback">
+                Please enter a name.
+              </div>
+            </div>
+    
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password" name="password" required >
+              <div class="valid-feedback">
+                Sounds good!
+              </div>
+              <div class="invalid-feedback">
+                Please enter Password.
+              </div>
+            </div>
+            <button type="submit" class="btn form-btn mb-3">Login</button>
+            <p >Don't Have An Account  ? <a class="sign-in-btn " href="/register">Register</a></p>
+            <!-- <a href="/forgot-password">Forgot Password?</a> -->
+
+            
+        
+            
+          </form>
+    
+</div>
+  
+
+
+<%- include("../partials/footer") %>
+

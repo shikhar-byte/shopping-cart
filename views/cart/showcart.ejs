@@ -1,0 +1,92 @@
+
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+<div class="container shopping-cart" style="margin: 3rem auto; padding: 3rem 0 2rem;" >
+    <%- include("../partials/flash") %>
+
+    <h1 class="shopping-cart-heading display-5 text-center my-5" ><i class="fas fa-shopping-cart fa-sm mx-4" ></i>Cart</h1>
+    
+
+    <% if(userCart.length === 0){ %>
+        <p class="display-6 text-center" >Cart Empty ! add items</p>
+    <% } else {%>
+
+    
+    <div class="row" >
+
+
+        <div class="col-lg-8 mb-5" >
+            <% for(let product of userCart){ %>
+    
+                <div class="card mb-5 p-2" style="max-width: 100%;box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; ">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                        <img src="<%=product.img %>" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-9">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.name %></h5>
+                            <p class="card-text"><%= product.desc %></p>
+                            <p class="card-text"><small class="text-muted">Price : &#8377; <%= product.price %></small></p>
+                            <form action="/user/<%= currentUser._id %>/cart/<%= product._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger" style=" padding: 0.4rem 1.5rem ;" >Remove</button>
+                            </form>
+                          
+                            <!-- <i class="fas fa-plus-circle fa-lg me-3"></i> -->
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                    <% } %>
+        </div>
+
+
+        
+
+        <div class="col-lg-4" style="margin: 0 auto; min-width: 300px ; max-width: 600px;" >
+            <div style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; " >
+                <h6 class="display-6 text-center" >Total Amount</h6>
+                <ul class="list-group p-3" >
+
+                    <% let tamount =0 %>
+
+                    <% for(let product of userCart){ %>
+                        <%  tamount = tamount + product.price %> 
+                        
+                        <li class="list-group-item" style="border:none" ><%= product.name %>  <span class="product-price" > &#8377; <%= product.price %></span></li>
+                    <% } %>
+
+                    
+                        <% if(tamount <= 50000){ %>
+                               <% tamount += 29 %>
+                            <li class="list-group-item" style="border: none;" >Delivery Charges <span>&#8377;29</span> </li>
+                        <% } else { %>
+
+                            <li class="list-group-item" style="border: none;" >Delivery Charges <span style="color: green;" >Free</span> </li>
+                        <% } %>
+
+                        
+                        <li class="list-group-item" style=" border: none;border-radius: 5px;" >Total Amount <span>&#8377;<%=tamount %> </span> </li>
+                        <a href="/cart/payment" class="btn " style=" " >Proceed To Checkout <span style="float: right;" >&#8377;<%=tamount %>  ></span> </a>
+                </ul>
+
+                
+
+                  
+            </div>
+                    
+        </div>
+
+        
+    </div>
+
+    <% }%>
+   
+      
+</div>
+
+
+
+<%- include("../partials/footer") %>
