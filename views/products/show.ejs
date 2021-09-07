@@ -91,14 +91,19 @@
                             </p>
                             <span style="color: grey;" class="text-capitalize" >by <%= review.user %></span>
                             <p class="card-text">Review : <%= review.comment %></p>
+                            <%if(currentUser){ %>
+
                             
                             <% if(currentUser.username === review.user){ %>
+
                               <form action="/products/<%= product._id %>/review/<%= review._id %>?_method=DELETE" method="POST">
                                 <button style="border: none;" <i class="fas fa-trash fa-lg"></i></button>
                               </form>
                             <% } else {%>
                                <button style="border: none;" <i class="fas fa-trash fa-lg"></i></button>
-                            <% } %>
+                            <% } %> 
+
+                          <% } %>
                           </div>
 
                         </div>
